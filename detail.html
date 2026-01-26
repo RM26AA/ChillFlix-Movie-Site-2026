@@ -18,6 +18,22 @@ main{padding:18px 20px 80px;}
 .detail-container img{width:220px; border-radius:8px; flex-shrink:0;}
 .detail-info{flex:1; min-width:220px;}
 .detail-info h1{margin-top:0; margin-bottom:10px;}
+
+
+.play-btn{
+  background: var(--accent);
+  color:#fff;
+  border:0;
+  padding:12px 26px;
+  font-size:16px;
+  font-weight:700;
+  border-radius:6px;
+  cursor:pointer;
+  margin:12px 0;
+}
+.play-btn:hover{ opacity:0.9 }
+
+
 .detail-info p{line-height:1.4; margin-bottom:8px;}
 .detail-info span{color:var(--muted);}
 .similar-section{margin-top:40px;}
@@ -93,6 +109,9 @@ async function fetchDetails(){
         <img src="${poster}" alt="${title}">
         <div class="detail-info">
           <h1>${title}</h1>
+		  
+		  <button id="playBtn" class="play-btn">▶ Play</button>
+		  
           <p><span>Release:</span> ${release}</p>
           <p><span>Rating:</span> ${rating}/10</p>
           <p><span>Genres:</span> ${genres}</p>
@@ -101,7 +120,24 @@ async function fetchDetails(){
       </div>
     `;
   }catch(e){ console.error('fetchDetails error',e); detailEl.innerHTML='<p>Error loading details.</p>'; }
+  
+  const playBtn = document.getElementById('playBtn');
+
+playBtn.addEventListener('click', () => {
+  let url = `player.html?id=${id}&type=${type}`;
+
+  // default TV start
+  if(type === 'tv'){
+    url += `&season=1&episode=1`;
+  }
+
+  window.open(url, '_blank');
+});
+  
 }
+
+
+
 
 // fetch similar
 async function fetchSimilar(){
@@ -128,6 +164,8 @@ fetchSimilar();
 
 // go home
 document.getElementById('logoHome').addEventListener('click', ()=>window.location.href='index.html');
+
+
 </script>
 
 </body>

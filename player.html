@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CHILL - Player</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+html,body{
+  margin:0;
+  padding:0;
+  background:#000;
+  height:100%;
+}
+iframe{
+  width:100%;
+  height:100vh;
+  border:0;
+}
+</style>
+</head>
+<body>
+
+<div id="player"></div>
+
+<script>
+function params(){
+  const p={};
+  location.search.slice(1).split('&').forEach(pair=>{
+    const [k,v]=pair.split('=');
+    p[decodeURIComponent(k)] = decodeURIComponent(v||'');
+  });
+  return p;
+}
+
+const qs = params();
+const id = qs.id;
+const type = qs.type;
+const season = qs.season || 1;
+const episode = qs.episode || 1;
+
+let src = '';
+
+if(type === 'movie'){
+  src = `https://www.vidking.net/embed/movie/${id}?color=e50914&autoPlay=true`;
+}else{
+  src = `https://www.vidking.net/embed/tv/${id}/${season}/${episode}?color=e50914&autoPlay=true&nextEpisode=true&episodeSelector=true`;
+}
+
+document.getElementById('player').innerHTML = `
+  <iframe src="${src}" allowfullscreen></iframe>
+`;
+</script>
+
+</body>
+</html>
