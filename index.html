@@ -188,6 +188,30 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
+  
+  /* =========================
+   FIX RANDOM PICKS (MOBILE)
+   ========================= */
+
+/* Let grid items behave like grid items */
+.random-grid .movie{
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  flex: unset;
+}
+
+/* Slightly taller posters so it doesn’t feel squashed */
+.random-grid .movie img{
+  height: 260px;
+}
+
+/* Give the section breathing room at the bottom */
+.random-grid{
+  margin-bottom: 24px;
+}
+
+  
 }
 
 	
