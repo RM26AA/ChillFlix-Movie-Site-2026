@@ -65,6 +65,64 @@
     @media (max-width:600px){ .grid{ grid-template-columns:repeat(auto-fill, minmax(110px, 1fr)); } .tile img{ height:165px } }
 
     .loading-more{ text-align:center; color:var(--muted); padding:12px 0 }
+	
+	/* =========================
+   MOBILE OPTIMIZATION (RESULTS)
+   ========================= */
+@media (max-width: 600px) {
+
+  /* Header tighter */
+  header{
+    padding: 10px 14px;
+  }
+
+  .logo{
+    height: 34px;
+  }
+
+  .title{
+    font-size: 16px;
+    text-align: center;
+  }
+
+  /* Main padding */
+  main{
+    padding: 14px 12px 80px;
+  }
+
+  /* Force clean 2-column grid */
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  /* Let tiles fill grid cells */
+  .tile{
+    width: 100%;
+  }
+
+  .tile img{
+    height: 170px;
+  }
+
+  .tile h3{
+    font-size: 12px;
+  }
+
+  /* Disable hover zoom on touch */
+  .tile:hover{
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Loading text spacing */
+  .loading-more{
+    font-size: 13px;
+    padding: 16px 0;
+  }
+}
+
+	
   </style>
 </head>
 <body>
