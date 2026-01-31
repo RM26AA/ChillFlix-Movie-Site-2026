@@ -110,6 +110,87 @@
       .movie img{ height:180px }
       .search-active .search-input{ width:160px }
     }
+	
+	/* =========================
+   MOBILE OPTIMIZATION (INDEX)
+   ========================= */
+@media (max-width: 600px) {
+
+  /* Header layout */
+  header{
+    flex-direction: column;
+    align-items: stretch;
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .left{
+    justify-content: space-between;
+  }
+
+  .logo{
+    height: 36px;
+  }
+
+  /* Nav becomes horizontal scroll */
+  nav.nav-links{
+    overflow-x: auto;
+    gap: 14px;
+    padding-bottom: 4px;
+  }
+
+  nav.nav-links a{
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  /* Search */
+  .search-active .search-input{
+    width: 100%;
+  }
+
+  /* Main padding tighter */
+  main{
+    padding: 14px 12px 80px;
+  }
+
+  /* Category spacing */
+  .category{
+    margin-bottom: 18px;
+  }
+
+  .category-header h2{
+    font-size: 16px;
+  }
+
+  /* Movie cards smaller & touch-friendly */
+  .movie{
+    min-width: 120px;
+    max-width: 120px;
+    flex: 0 0 120px;
+  }
+
+  .movie img{
+    height: 170px;
+  }
+
+  .movie h3{
+    font-size: 12px;
+  }
+
+  /* Swipe instead of arrows */
+  .arrow-btn{
+    display: none;
+  }
+
+  /* Random grid tighter */
+  .random-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+	
   </style>
 </head>
 <body>
